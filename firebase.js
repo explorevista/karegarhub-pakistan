@@ -1,9 +1,12 @@
 /**
- * firebase.js - Firebase v10 Modular SDK (FIXED)
- * GharFix Pakistan - Production Configuration
+ * firebase.js – Firebase v10 Modular SDK (Production Ready)
+ * GharFix Pakistan – Home Services Platform
+ * 
+ * ✅ Auth: Email/Password
+ * ✅ Firestore: users, workers, support_requests
+ * ✅ No phone auth, no Google auth (as requested)
  */
 
-// Import Firebase v10 Modular SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { 
   getAuth,
@@ -12,8 +15,7 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
-  sendPasswordResetEmail,
-  updateProfile as updateAuthProfile
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore,
@@ -36,7 +38,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-// Export all needed functions for app.js
+// Export all functions for app.js
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -44,10 +46,8 @@ export {
   onAuthStateChanged,
   sendEmailVerification,
   sendPasswordResetEmail,
-  updateAuthProfile,
   doc, setDoc, getDoc, updateDoc, deleteDoc,
   collection, addDoc, getDocs, query, where, orderBy, serverTimestamp
 };
 
-// Console confirmation (remove in production)
-console.log('✅ Firebase initialized:', app.name);
+console.log("✅ Firebase initialized – GharFix Pakistan");
