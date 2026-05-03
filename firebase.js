@@ -1,20 +1,48 @@
 /**
- * firebase.js - Firebase v10 Modular SDK
- * ⚠️ Replace config with your Firebase project credentials
+ * firebase.js - Firebase v10 Modular SDK Configuration
+ * GharFix Pakistan - Home Services Platform
  */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut, 
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { 
+  getFirestore, 
+  doc, setDoc, getDoc, updateDoc, deleteDoc,
+  collection, addDoc, getDocs, query, where, orderBy, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+// 🔐 Firebase Configuration (EXACT as provided)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCu-7TW6L_vyvWKt0AXn8VmFBq0GLy9jUQ",
+  authDomain: "gharfix-pakistan.firebaseapp.com",
+  projectId: "gharfix-pakistan",
+  storageBucket: "gharfix-pakistan.firebasestorage.app",
+  messagingSenderId: "317551476048",
+  appId: "1:317551476048:web:c404154a010fcf4fcb4055"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+// Export all needed functions
+export {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  updateProfile,
+  doc, setDoc, getDoc, updateDoc, deleteDoc,
+  collection, addDoc, getDocs, query, where, orderBy, serverTimestamp
+};
