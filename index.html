@@ -3,330 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel – GharFix Pakistan</title>
-  <meta name="description" content="Admin dashboard for managing workers, users, and content on GharFix.">
   
+  <!-- SEO Meta Tags -->
+  <title>GharFix Pakistan – Home Services Platform</title>
+  <meta name="description" content="Find trusted electricians, plumbers, AC technicians & mechanics in Pakistan. Fast, reliable home services at your doorstep.">
+  <meta name="keywords" content="home services pakistan, electrician, plumber, ac repair, handyman, gharfix">
+  <meta name="author" content="Muhammad Ali">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="GharFix Pakistan – Home Services Platform">
+  <meta property="og:description" content="Har Ghar Ki Har Repair, Ek Click Par">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gharfix-pakistan.firebaseapp.com">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "GharFix Pakistan",
+    "description": "Home repair and services platform in Pakistan",
+    "url": "https://gharfix-pakistan.firebaseapp.com",
+    "telephone": "+923441695860",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PK"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Muhammad Ali"
+    }
+  }
+  </script>
 </head>
 <body>
+  <!-- Skip Link for Accessibility -->
   <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Toast Notification -->
   <div id="toast" role="status" aria-live="polite"></div>
   
-  <nav class="navbar">
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="GharFix Home">
         <img src="assets/images/logo.png" alt="GharFix" class="logo-img" onerror="this.style.display='none'">
         GharFix<span>.pk</span>
       </a>
-      <div class="nav-links">
-        <a href="dashboard.html" class="nav-link">User Dashboard</a>
-        <button class="btn btn-sm btn-outline" id="themeToggle">🌓</button>
-        <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+      
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        
+        <!-- Guest Navigation -->
+        <span id="guestNav">
+          <a href="login.html" class="btn btn-sm btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        </span>
+        
+        <!-- User Navigation -->
+        <span id="userNav" class="hidden">
+          <a href="dashboard.html" class="nav-link">Dashboard</a>
+          <a href="profile.html" class="nav-link" id="userName">Profile</a>
+          <a href="admin-dashboard.html" id="adminLink" class="nav-link hidden">Admin</a>
+          <button class="btn btn-sm btn-outline" id="themeToggle" aria-label="Toggle dark mode">🌓</button>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </span>
       </div>
     </div>
   </nav>
   
+  <!-- Main Content -->
   <main id="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text animate-slide">
+          <h1>Har Ghar Ki Har Repair, <span class="text-primary">Ek Click Par</span></h1>
+          <p>Find verified electricians, plumbers, AC technicians & mechanics across Pakistan. Quality work, guaranteed satisfaction.</p>
+          <div class="hero-cta">
+            <a href="#services" class="btn btn-lg btn-primary">Browse Services</a>
+            <a href="https://wa.me/923441695860" target="_blank" rel="noopener" class="btn btn-lg btn-whatsapp">
+              💬 Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="hero-image animate-fade">
+          <img src="assets/images/hero.jpg" 
+               alt="Professional home repair services in Pakistan"
+               onerror="this.src='https://via.placeholder.com/600x400?text=GharFix+Services'">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2>Our Services</h2>
+          <p class="text-muted">Professional home repair services at your fingertips</p>
+        </div>
+        
+        <div class="services-grid">
+          <button class="card service-card glass" data-service="electrician" aria-label="Electrician services">
+            <span class="service-icon">⚡</span>
+            <span class="service-name">Electrician</span>
+          </button>
+          <button class="card service-card glass" data-service="plumber" aria-label="Plumber services">
+            <span class="service-icon">🚰</span>
+            <span class="service-name">Plumber</span>
+          </button>
+          <button class="card service-card glass" data-service="ac" aria-label="AC Technician services">
+            <span class="service-icon">❄️</span>
+            <span class="service-name">AC Technician</span>
+          </button>
+          <button class="card service-card glass" data-service="carpenter" aria-label="Carpenter services">
+            <span class="service-icon">🪵</span>
+            <span class="service-name">Carpenter</span>
+          </button>
+          <button class="card service-card glass" data-service="mason" aria-label="Mason services">
+            <span class="service-icon">🧱</span>
+            <span class="service-name">Mason</span>
+          </button>
+          <button class="card service-card glass" data-service="painter" aria-label="Painter services">
+            <span class="service-icon">🎨</span>
+            <span class="service-name">Painter</span>
+          </button>
+          <button class="card service-card glass" data-service="car-mechanic" aria-label="Car Mechanic services">
+            <span class="service-icon">🚗</span>
+            <span class="service-name">Car Mechanic</span>
+          </button>
+          <button class="card service-card glass" data-service="bike-mechanic" aria-label="Bike Mechanic services">
+            <span class="service-icon">🏍️</span>
+            <span class="service-name">Bike Mechanic</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Featured Workers -->
+    <section class="section" style="background: var(--bg);">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2>Featured Professionals</h2>
+          <p class="text-muted">Verified workers ready to help you</p>
+        </div>
+        
+        <div id="workersGrid" class="workers-grid">
+          <!-- Workers loaded dynamically via JavaScript -->
+          <div class="text-center">
+            <span class="loading"></span>
+            <p class="text-muted mt-2">Loading professionals...</p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="dashboard.html" class="btn btn-outline">View All Workers →</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Support CTA -->
     <section class="section">
       <div class="container">
-        <div class="dashboard-header">
-          <h1>⚙️ Admin Panel</h1>
-          <span class="badge badge-warning">Admin Access</span>
-        </div>
-        
-        <!-- Stats Overview -->
-        <div class="dashboard-grid mb-4">
-          <div class="card glass">
-            <h4>Total Users</h4>
-            <p class="text-2xl font-bold" id="statUsers">Loading...</p>
-          </div>
-          <div class="card glass">
-            <h4>Active Workers</h4>
-            <p class="text-2xl font-bold" id="statWorkers">Loading...</p>
-          </div>
-          <div class="card glass">
-            <h4>Open Tickets</h4>
-            <p class="text-2xl font-bold" id="statTickets">Loading...</p>
-          </div>
-        </div>
-        
-        <!-- Add Worker Form -->
-        <div class="card glass mb-4">
-          <h3>➕ Add New Worker</h3>
-          <form id="workerForm" class="form">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-              <div class="form-group">
-                <label>Name *</label>
-                <input type="text" id="workerName" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Category *</label>
-                <select id="workerCategory" class="form-control" required>
-                  <option value="">Select...</option>
-                  <option value="electrician">Electrician</option>
-                  <option value="plumber">Plumber</option>
-                  <option value="ac">AC Technician</option>
-                  <option value="carpenter">Carpenter</option>
-                  <option value="mason">Mason</option>
-                  <option value="painter">Painter</option>
-                  <option value="car-mechanic">Car Mechanic</option>
-                  <option value="bike-mechanic">Bike Mechanic</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Phone *</label>
-                <input type="tel" id="workerPhone" class="form-control" placeholder="923XXXXXXXX" required>
-              </div>
-              <div class="form-group">
-                <label>Experience (yrs)</label>
-                <input type="number" id="workerExp" class="form-control" min="0">
-              </div>
-              <div class="form-group">
-                <label>Rating (0-5)</label>
-                <input type="number" id="workerRating" class="form-control" min="0" max="5" step="0.1">
-              </div>
-              <div class="form-group">
-                <label>Location</label>
-                <input type="text" id="workerLocation" class="form-control" placeholder="City/Area">
-              </div>
-              <div class="form-group">
-                <label>Photo</label>
-                <input type="file" id="workerPhoto" class="form-control" accept="image/*">
-              </div>
-              <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
-                <input type="checkbox" id="workerAvailable" checked>
-                <label for="workerAvailable" style="margin: 0;">Available Now</label>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Save Worker</button>
-              <button type="reset" class="btn btn-outline">Clear</button>
-            </div>
-          </form>
-        </div>
-        
-        <!-- Workers Table -->
-        <div class="card glass">
-          <h3>👥 Manage Workers</h3>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Phone</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="workersTable">
-                <tr><td colspan="5" class="text-center text-muted">Loading...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        <!-- Support Tickets -->
-        <div class="card glass mt-4">
-          <h3>🎫 Support Tickets</h3>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>User</th>
-                  <th>Category</th>
-                  <th>Message</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="ticketsTable">
-                <tr><td colspan="5" class="text-center text-muted">Loading...</td></tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="card glass text-center" style="max-width: 700px; margin: 0 auto;">
+          <h3>Need Custom Help?</h3>
+          <p class="text-muted mb-3">Can't find what you need? Submit a support request and we'll connect you with the right professional within 24 hours.</p>
+          <a href="contact.html#support" class="btn btn-primary">Get Support</a>
         </div>
       </div>
     </section>
   </main>
   
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="GharFix" class="logo-img" onerror="this.style.display='none'">
+            GharFix<span>.pk</span>
+          </a>
+          <p>Pakistan's trusted home services platform. Verified professionals, guaranteed quality work.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1HtgWdb4eR/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">f</a>
+            <a href="https://www.instagram.com/explorevista2025" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">📷</a>
+            <a href="https://www.linkedin.com/in/muhammad-ali-kn-22505a28a" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="https://t.me/Aiearnverse" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">✈️</a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="#services">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <p>📞 <a href="tel:+923441695860" data-phone>+92 344 1695860</a></p>
+          <p>✉️ <a href="mailto:muhammadalikn53@gmail.com" data-email>muhammadalikn53@gmail.com</a></p>
+          <p>🕐 Mon-Sat: 9AM - 9PM PKT</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> GharFix Pakistan. All rights reserved.</p>
+        <p class="text-muted" style="font-size: 0.8rem; margin-top: 0.5rem;">
+          Founded by <strong id="founderName">Muhammad Ali</strong> — <span id="founderMission">Provide fast and reliable home services in Pakistan</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
   <script type="module">
-    import { initFirebase, auth, onAuthStateChanged, collection, getDocs, addDoc, doc, updateDoc, deleteDoc, query, where, serverTimestamp } from './firebase.js';
-    import { initTheme, uploadToImgBB, showToast, SERVICES } from './app.js';
+    // Initialize Firebase first
+    import { initFirebase } from './app.js';
     
-    initTheme();
     await initFirebase();
     
-    // Admin access check
-    const ADMIN_EMAIL = "smarttoolsuniverse2026@gmail.com";
+    // Then initialize app
+    import { initApp, loadWorkers, initAuthListener, auth, signOut, showToast } from './app.js';
     
-    onAuthStateChanged(auth, async (user) => {
-      if (!user || user.email !== ADMIN_EMAIL) {
-        showToast('Admin access required', 'error');
-        window.location.href = 'index.html';
-        return;
-      }
-      
-      // Load stats and data
-      loadStats();
-      loadWorkersTable();
-      loadTickets();
-    });
+    // Load workers on home page
+    loadWorkers('workersGrid');
     
-    async function loadStats() {
-      try {
-        const [usersSnap, workersSnap, ticketsSnap] = await Promise.all([
-          getDocs(collection(db, 'users')),
-          getDocs(query(collection(db, 'workers'), where('status', '==', 'approved'))),
-          getDocs(query(collection(db, 'support_requests'), where('status', '==', 'open')))
-        ]);
-        
-        document.getElementById('statUsers').textContent = usersSnap.size;
-        document.getElementById('statWorkers').textContent = workersSnap.size;
-        document.getElementById('statTickets').textContent = ticketsSnap.size;
-      } catch (error) {
-        console.error('Stats error:', error);
-      }
-    }
-    
-    async function loadWorkersTable() {
-      const tbody = document.getElementById('workersTable');
-      try {
-        const snap = await getDocs(collection(db, 'workers'));
-        
-        if (snap.empty) {
-          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No workers found</td></tr>';
-          return;
-        }
-        
-        tbody.innerHTML = snap.docs.map(d => {
-          const w = d.data();
-          const service = SERVICES.find(s => s.id === w.category);
-          return `
-            <tr>
-              <td>${w.name}</td>
-              <td>${service?.name || w.category}</td>
-              <td>${w.phone}</td>
-              <td><span class="worker-badge ${w.available ? 'badge-available' : 'badge-busy'}">${w.available ? 'Available' : 'Busy'}</span></td>
-              <td class="actions">
-                <button class="btn btn-sm btn-outline" onclick="editWorker('${d.id}')">Edit</button>
-                <button class="btn btn-sm btn-danger" onclick="deleteWorker('${d.id}')">Delete</button>
-              </td>
-            </tr>
-          `;
-        }).join('');
-      } catch (error) {
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load workers</td></tr>';
-      }
-    }
-    
-    async function loadTickets() {
-      const tbody = document.getElementById('ticketsTable');
-      try {
-        const snap = await getDocs(query(collection(db, 'support_requests'), where('status', '==', 'open')));
-        
-        if (snap.empty) {
-          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No open tickets</td></tr>';
-          return;
-        }
-        
-        tbody.innerHTML = snap.docs.map(d => {
-          const t = d.data();
-          return `
-            <tr>
-              <td>${t.userName || t.userEmail}</td>
-              <td>${t.category}</td>
-              <td>${t.message?.substring(0, 50) || ''}...</td>
-              <td><span class="badge badge-warning">Open</span></td>
-              <td class="actions">
-                <button class="btn btn-sm btn-success" onclick="resolveTicket('${d.id}')">Resolve</button>
-              </td>
-            </tr>
-          `;
-        }).join('');
-      } catch (error) {
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load tickets</td></tr>';
-      }
-    }
-    
-    // Worker form submit
-    document.getElementById('workerForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      
-      try {
-        let photoUrl = '';
-        const photoFile = document.getElementById('workerPhoto').files[0];
-        if (photoFile) {
-          photoUrl = await uploadToImgBB(photoFile);
-        }
-        
-        await addDoc(collection(db, 'workers'), {
-          name: document.getElementById('workerName').value,
-          category: document.getElementById('workerCategory').value,
-          phone: document.getElementById('workerPhone').value,
-          experience: parseInt(document.getElementById('workerExp').value) || 0,
-          rating: parseFloat(document.getElementById('workerRating').value) || 0,
-          location: document.getElementById('workerLocation').value,
-          available: document.getElementById('workerAvailable').checked,
-          photo: photoUrl,
-          status: 'approved',
-          createdAt: serverTimestamp()
-        });
-        
-        showToast('Worker added successfully', 'success');
-        e.target.reset();
-        loadWorkersTable();
-        loadStats();
-        
-      } catch (error) {
-        showToast('Failed to add worker: ' + error.message, 'error');
-      } finally {
-        btn.disabled = false;
-      }
-    });
-    
-    // Global functions for inline onclick
-    window.editWorker = async (id) => {
-      showToast('Edit functionality - implement as needed', 'warning');
-    };
-    
-    window.deleteWorker = async (id) => {
-      if (!confirm('Delete this worker permanently?')) return;
-      try {
-        await deleteDoc(doc(db, 'workers', id));
-        showToast('Worker deleted', 'success');
-        loadWorkersTable();
-        loadStats();
-      } catch (error) {
-        showToast('Delete failed', 'error');
-      }
-    };
-    
-    window.resolveTicket = async (id) => {
-      try {
-        await updateDoc(doc(db, 'support_requests', id), {
-          status: 'resolved',
-          resolvedAt: serverTimestamp()
-        });
-        showToast('Ticket resolved', 'success');
-        loadTickets();
-        loadStats();
-      } catch (error) {
-        showToast('Failed to resolve', 'error');
-      }
-    };
-    
-    // Logout
+    // Logout handler
     document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
       e.preventDefault();
-      await auth.signOut();
-      window.location.href = 'index.html';
+      try {
+        await signOut(auth);
+        showToast('Logged out successfully', 'success');
+        window.location.href = 'index.html';
+      } catch (error) {
+        showToast('Logout failed', 'error');
+      }
     });
+    
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
