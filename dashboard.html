@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard – GharFix Pakistan</title>
   <meta name="description" content="Manage your bookings, view workers, and update your profile on GharFix.">
-  
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -14,7 +13,6 @@
   <a href="#main" class="skip-link">Skip to main content</a>
   <div id="toast" role="status" aria-live="polite"></div>
   
-  <!-- Full Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
@@ -53,38 +51,14 @@
         <div id="services" class="mb-4">
           <h3>Find a Professional</h3>
           <div class="services-grid">
-            <button class="card service-card glass" data-service="electrician">
-              <span class="service-icon">⚡</span>
-              <span class="service-name">Electrician</span>
-            </button>
-            <button class="card service-card glass" data-service="plumber">
-              <span class="service-icon">🚰</span>
-              <span class="service-name">Plumber</span>
-            </button>
-            <button class="card service-card glass" data-service="ac">
-              <span class="service-icon">❄️</span>
-              <span class="service-name">AC Technician</span>
-            </button>
-            <button class="card service-card glass" data-service="carpenter">
-              <span class="service-icon">🪵</span>
-              <span class="service-name">Carpenter</span>
-            </button>
-            <button class="card service-card glass" data-service="mason">
-              <span class="service-icon">🧱</span>
-              <span class="service-name">Mason</span>
-            </button>
-            <button class="card service-card glass" data-service="painter">
-              <span class="service-icon">🎨</span>
-              <span class="service-name">Painter</span>
-            </button>
-            <button class="card service-card glass" data-service="car-mechanic">
-              <span class="service-icon">🚗</span>
-              <span class="service-name">Car Mechanic</span>
-            </button>
-            <button class="card service-card glass" data-service="bike-mechanic">
-              <span class="service-icon">🏍️</span>
-              <span class="service-name">Bike Mechanic</span>
-            </button>
+            <button class="card service-card glass" data-service="electrician"><span class="service-icon">⚡</span><span class="service-name">Electrician</span></button>
+            <button class="card service-card glass" data-service="plumber"><span class="service-icon">🚰</span><span class="service-name">Plumber</span></button>
+            <button class="card service-card glass" data-service="ac"><span class="service-icon">❄️</span><span class="service-name">AC Technician</span></button>
+            <button class="card service-card glass" data-service="carpenter"><span class="service-icon">🪵</span><span class="service-name">Carpenter</span></button>
+            <button class="card service-card glass" data-service="mason"><span class="service-icon">🧱</span><span class="service-name">Mason</span></button>
+            <button class="card service-card glass" data-service="painter"><span class="service-icon">🎨</span><span class="service-name">Painter</span></button>
+            <button class="card service-card glass" data-service="car-mechanic"><span class="service-icon">🚗</span><span class="service-name">Car Mechanic</span></button>
+            <button class="card service-card glass" data-service="bike-mechanic"><span class="service-icon">🏍️</span><span class="service-name">Bike Mechanic</span></button>
           </div>
         </div>
         
@@ -92,10 +66,7 @@
         <div>
           <h3>Available Professionals</h3>
           <div id="workersGrid" class="workers-grid">
-            <div class="text-center">
-              <span class="loading"></span>
-              <p class="text-muted mt-2">Loading professionals...</p>
-            </div>
+            <div class="text-center"><span class="loading"></span><p class="text-muted mt-2">Loading professionals...</p></div>
           </div>
         </div>
         
@@ -109,7 +80,6 @@
               <a href="#" class="btn btn-outline">⭐ Saved Workers</a>
             </div>
           </div>
-          
           <div class="card glass">
             <h3>📊 Account Info</h3>
             <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
@@ -121,13 +91,10 @@
     </section>
   </main>
   
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo">GharFix<span>.pk</span></a>
-        </div>
+        <div class="footer-brand"><a href="index.html" class="logo">GharFix<span>.pk</span></a></div>
         <div class="footer-links">
           <h4>Quick Links</h4>
           <a href="index.html">Home</a>
@@ -151,20 +118,11 @@
   </footer>
   
   <script type="module">
-    import { initFirebase, auth, onAuthStateChanged, doc, getDoc } from './firebase.js';
-    import { initApp, loadWorkers, getCurrentUser, getUserProfile, isAdmin, showToast, signOut } from './app.js';
+    import { auth, db, onAuthStateChanged, doc, getDoc, signOut } from './firebase.js';
+    import { initApp, loadWorkers, isAdmin, showToast } from './app.js';
     
-    await initFirebase();
-    
-    // Auth check - redirect if not logged in
     onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        showToast('Please login to access dashboard', 'warning');
-        window.location.href = 'login.html';
-        return;
-      }
-      
-      // Load user profile
+      if (!user) { showToast('Please login to access dashboard', 'warning'); window.location.href = 'login.html'; return; }
       try {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
         if (userDoc.exists()) {
@@ -173,34 +131,19 @@
           document.getElementById('memberSince').textContent = profile.createdAt?.toDate?.().toLocaleDateString('en-PK') || 'N/A';
           document.getElementById('userRole').textContent = profile.role?.charAt(0).toUpperCase() + profile.role?.slice(1) || 'User';
           document.getElementById('userName').textContent = profile.name || user.email?.split('@')[0];
-          
-          // Show admin link if admin
-          if (isAdmin()) {
-            document.getElementById('adminLink').classList.remove('hidden');
-          }
+          if (isAdmin()) document.getElementById('adminLink').classList.remove('hidden');
         }
-      } catch (error) {
-        console.error('Error loading profile:', error);
-      }
-      
-      // Load workers
+      } catch (error) { console.error('Error loading profile:', error); }
       loadWorkers('workersGrid');
     });
     
-    // Logout handler
     document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
       e.preventDefault();
-      try {
-        await signOut(auth);
-        showToast('Logged out successfully', 'success');
-        window.location.href = 'index.html';
-      } catch (error) {
-        showToast('Logout failed', 'error');
-      }
+      try { await signOut(auth); showToast('Logged out successfully', 'success'); window.location.href = 'index.html'; }
+      catch (error) { showToast('Logout failed', 'error'); }
     });
     
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-  <script type="module" src="app.js"></script>
 </body>
 </html>
