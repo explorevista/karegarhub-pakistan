@@ -1,9 +1,30 @@
-// firebase.js - Firebase v10 Configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc, getDocs, query, where, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+/**
+ * firebase.js – Firebase v10 Modular SDK
+ * KarigarHub Pakistan – Production Configuration
+ * 
+ * ✅ Auth: Email/Password
+ * ✅ Firestore: users, workers, support_requests, bookings
+ * ✅ Storage: IMGBB for images
+ */
 
-// ⚠️ YAHAN APNA FIREBASE CONFIG PASTE KAREIN (Step 1.4 se copy kiya hua)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { 
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc, setDoc, getDoc, updateDoc, deleteDoc,
+  collection, addDoc, getDocs, query, where, orderBy, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// 🔐 Firebase Config (EXACT as provided – DO NOT CHANGE)
 const firebaseConfig = {
   apiKey: "AIzaSyCu-7TW6L_vyvWKt0AXn8VmFBq0GLy9jUQ",
   authDomain: "gharfix-pakistan.firebaseapp.com",
@@ -18,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-// Export functions
+// Export all functions for app.js
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -26,8 +47,9 @@ export {
   onAuthStateChanged,
   sendEmailVerification,
   sendPasswordResetEmail,
-  doc, setDoc, getDoc, updateDoc,
-  collection, addDoc, getDocs, query, where, serverTimestamp
+  updateProfile,
+  doc, setDoc, getDoc, updateDoc, deleteDoc,
+  collection, addDoc, getDocs, query, where, orderBy, serverTimestamp
 };
 
-console.log("✅ Firebase Connected Successfully!");
+console.log("✅ KarigarHub Firebase Connected");
