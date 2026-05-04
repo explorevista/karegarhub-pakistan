@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-PK">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel – GharFix Pakistan</title>
-  <meta name="description" content="Admin dashboard for managing workers, users, and content on GharFix.">
+  <title>Admin Panel – KarigarHub Pakistan</title>
+  <meta name="description" content="Admin dashboard for managing workers, users, and content on KarigarHub.">
+  
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -14,14 +15,11 @@
   <div id="toast" role="status" aria-live="polite"></div>
   
   <nav class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo.png" alt="GharFix" class="logo-img" onerror="this.style.display='none'">
-        GharFix<span>.pk</span>
-      </a>
+    <div class="nav-container">
+      <a href="index.html" class="logo">KarigarHub.pk</a>
       <div class="nav-links">
         <a href="dashboard.html" class="nav-link">User Dashboard</a>
-        <button class="btn btn-sm btn-outline" id="themeToggle">🌓</button>
+        <button class="theme-toggle" id="themeToggle">🌓</button>
         <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
       </div>
     </div>
@@ -35,11 +33,20 @@
           <span class="badge badge-warning">Admin Access</span>
         </div>
         
-        <!-- Stats -->
+        <!-- Stats Overview -->
         <div class="dashboard-grid mb-4">
-          <div class="card glass"><h4>Total Users</h4><p class="text-2xl font-bold" id="statUsers">Loading...</p></div>
-          <div class="card glass"><h4>Active Workers</h4><p class="text-2xl font-bold" id="statWorkers">Loading...</p></div>
-          <div class="card glass"><h4>Open Tickets</h4><p class="text-2xl font-bold" id="statTickets">Loading...</p></div>
+          <div class="card glass">
+            <h4>Total Users</h4>
+            <p class="text-2xl font-bold" id="statUsers">Loading...</p>
+          </div>
+          <div class="card glass">
+            <h4>Active Workers</h4>
+            <p class="text-2xl font-bold" id="statWorkers">Loading...</p>
+          </div>
+          <div class="card glass">
+            <h4>Open Tickets</h4>
+            <p class="text-2xl font-bold" id="statTickets">Loading...</p>
+          </div>
         </div>
         
         <!-- Add Worker Form -->
@@ -47,7 +54,10 @@
           <h3>➕ Add New Worker</h3>
           <form id="workerForm" class="form">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-              <div class="form-group"><label>Name *</label><input type="text" id="workerName" class="form-control" required></div>
+              <div class="form-group">
+                <label>Name *</label>
+                <input type="text" id="workerName" class="form-control" required>
+              </div>
               <div class="form-group">
                 <label>Category *</label>
                 <select id="workerCategory" class="form-control" required>
@@ -60,15 +70,33 @@
                   <option value="painter">Painter</option>
                   <option value="car-mechanic">Car Mechanic</option>
                   <option value="bike-mechanic">Bike Mechanic</option>
+                  <option value="cleaner">Cleaner</option>
+                  <option value="appliance">Appliance Repair</option>
                 </select>
               </div>
-              <div class="form-group"><label>Phone *</label><input type="tel" id="workerPhone" class="form-control" placeholder="923XXXXXXXX" required></div>
-              <div class="form-group"><label>Experience (yrs)</label><input type="number" id="workerExp" class="form-control" min="0"></div>
-              <div class="form-group"><label>Rating (0-5)</label><input type="number" id="workerRating" class="form-control" min="0" max="5" step="0.1"></div>
-              <div class="form-group"><label>Location</label><input type="text" id="workerLocation" class="form-control" placeholder="City/Area"></div>
-              <div class="form-group"><label>Photo</label><input type="file" id="workerPhoto" class="form-control" accept="image/*"></div>
+              <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" id="workerPhone" class="form-control" placeholder="923XXXXXXXX" required>
+              </div>
+              <div class="form-group">
+                <label>Experience (yrs)</label>
+                <input type="number" id="workerExp" class="form-control" min="0">
+              </div>
+              <div class="form-group">
+                <label>Rating (0-5)</label>
+                <input type="number" id="workerRating" class="form-control" min="0" max="5" step="0.1">
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="workerLocation" class="form-control" placeholder="City/Area">
+              </div>
+              <div class="form-group">
+                <label>Photo</label>
+                <input type="file" id="workerPhoto" class="form-control" accept="image/*">
+              </div>
               <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
-                <input type="checkbox" id="workerAvailable" checked><label for="workerAvailable" style="margin: 0;">Available Now</label>
+                <input type="checkbox" id="workerAvailable" checked>
+                <label for="workerAvailable" style="margin: 0;">Available Now</label>
               </div>
             </div>
             <div class="form-actions">
@@ -83,8 +111,18 @@
           <h3>👥 Manage Workers</h3>
           <div class="table-container">
             <table class="data-table">
-              <thead><tr><th>Name</th><th>Category</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead>
-              <tbody id="workersTable"><tr><td colspan="5" class="text-center text-muted">Loading...</td></tr></tbody>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="workersTable">
+                <tr><td colspan="5" class="text-center text-muted">Loading...</td></tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -94,8 +132,18 @@
           <h3>🎫 Support Tickets</h3>
           <div class="table-container">
             <table class="data-table">
-              <thead><tr><th>User</th><th>Category</th><th>Message</th><th>Status</th><th>Action</th></tr></thead>
-              <tbody id="ticketsTable"><tr><td colspan="5" class="text-center text-muted">Loading...</td></tr></tbody>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Category</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="ticketsTable">
+                <tr><td colspan="5" class="text-center text-muted">Loading...</td></tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -111,8 +159,16 @@
     const ADMIN_EMAIL = "smarttoolsuniverse2026@gmail.com";
     
     onAuthStateChanged(auth, async (user) => {
-      if (!user || user.email !== ADMIN_EMAIL) { showToast('Admin access required', 'error'); window.location.href = 'index.html'; return; }
-      loadStats(); loadWorkersTable(); loadTickets();
+      if (!user || user.email !== ADMIN_EMAIL) {
+        showToast('Admin access required', 'error');
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Load stats and data
+      loadStats();
+      loadWorkersTable();
+      loadTickets();
     });
     
     async function loadStats() {
@@ -122,48 +178,89 @@
           getDocs(query(collection(db, 'workers'), where('status', '==', 'approved'))),
           getDocs(query(collection(db, 'support_requests'), where('status', '==', 'open')))
         ]);
+        
         document.getElementById('statUsers').textContent = usersSnap.size;
         document.getElementById('statWorkers').textContent = workersSnap.size;
         document.getElementById('statTickets').textContent = ticketsSnap.size;
-      } catch (error) { console.error('Stats error:', error); }
+      } catch (error) {
+        console.error('Stats error:', error);
+      }
     }
     
     async function loadWorkersTable() {
       const tbody = document.getElementById('workersTable');
       try {
         const snap = await getDocs(collection(db, 'workers'));
-        if (snap.empty) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No workers found</td></tr>'; return; }
+        
+        if (snap.empty) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No workers found</td></tr>';
+          return;
+        }
+        
         tbody.innerHTML = snap.docs.map(d => {
-          const w = d.data(); const service = SERVICES.find(s => s.id === w.category);
-          return `<tr><td>${w.name}</td><td>${service?.name || w.category}</td><td>${w.phone}</td>
-            <td><span class="worker-badge ${w.available ? 'badge-available' : 'badge-busy'}">${w.available ? 'Available' : 'Busy'}</span></td>
-            <td class="actions"><button class="btn btn-sm btn-outline" onclick="editWorker('${d.id}')">Edit</button>
-            <button class="btn btn-sm btn-danger" onclick="deleteWorker('${d.id}')">Delete</button></td></tr>`;
+          const w = d.data();
+          const service = SERVICES.find(s => s.id === w.category);
+          return `
+            <tr>
+              <td>${w.name}</td>
+              <td>${service?.name || w.category}</td>
+              <td>${w.phone}</td>
+              <td><span class="worker-badge ${w.available ? 'badge-available' : 'badge-busy'}">${w.available ? 'Available' : 'Busy'}</span></td>
+              <td class="actions">
+                <button class="btn btn-sm btn-outline" onclick="editWorker('${d.id}')">Edit</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteWorker('${d.id}')">Delete</button>
+              </td>
+            </tr>
+          `;
         }).join('');
-      } catch (error) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load workers</td></tr>'; }
+      } catch (error) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load workers</td></tr>';
+      }
     }
     
     async function loadTickets() {
       const tbody = document.getElementById('ticketsTable');
       try {
         const snap = await getDocs(query(collection(db, 'support_requests'), where('status', '==', 'open')));
-        if (snap.empty) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No open tickets</td></tr>'; return; }
+        
+        if (snap.empty) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No open tickets</td></tr>';
+          return;
+        }
+        
         tbody.innerHTML = snap.docs.map(d => {
           const t = d.data();
-          return `<tr><td>${t.userName || t.userEmail}</td><td>${t.category}</td><td>${t.message?.substring(0, 50) || ''}...</td>
-            <td><span class="badge badge-warning">Open</span></td>
-            <td class="actions"><button class="btn btn-sm btn-success" onclick="resolveTicket('${d.id}')">Resolve</button></td></tr>`;
+          return `
+            <tr>
+              <td>${t.userName || t.userEmail}</td>
+              <td>${t.category}</td>
+              <td>${t.message?.substring(0, 50) || ''}...</td>
+              <td><span class="badge badge-warning">Open</span></td>
+              <td class="actions">
+                <button class="btn btn-sm btn-success" onclick="resolveTicket('${d.id}')">Resolve</button>
+              </td>
+            </tr>
+          `;
         }).join('');
-      } catch (error) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load tickets</td></tr>'; }
+      } catch (error) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Failed to load tickets</td></tr>';
+      }
     }
     
+    // Worker form submit
     document.getElementById('workerForm')?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true;
+      
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      
       try {
         let photoUrl = '';
         const photoFile = document.getElementById('workerPhoto').files[0];
-        if (photoFile) photoUrl = await uploadToImgBB(photoFile);
+        if (photoFile) {
+          photoUrl = await uploadToImgBB(photoFile);
+        }
+        
         await addDoc(collection(db, 'workers'), {
           name: document.getElementById('workerName').value,
           category: document.getElementById('workerCategory').value,
@@ -172,26 +269,60 @@
           rating: parseFloat(document.getElementById('workerRating').value) || 0,
           location: document.getElementById('workerLocation').value,
           available: document.getElementById('workerAvailable').checked,
-          photo: photoUrl, status: 'approved', createdAt: serverTimestamp()
+          photo: photoUrl,
+          status: 'approved',
+          createdAt: serverTimestamp()
         });
-        showToast('Worker added successfully', 'success'); e.target.reset(); loadWorkersTable(); loadStats();
-      } catch (error) { showToast('Failed to add worker: ' + error.message, 'error'); }
-      finally { btn.disabled = false; }
+        
+        showToast('Worker added successfully', 'success');
+        e.target.reset();
+        loadWorkersTable();
+        loadStats();
+        
+      } catch (error) {
+        showToast('Failed to add worker: ' + error.message, 'error');
+      } finally {
+        btn.disabled = false;
+      }
     });
     
-    window.editWorker = async (id) => { showToast('Edit functionality - implement as needed', 'warning'); };
-    window.deleteWorker = async (id) => {
-      if (!confirm('Delete this worker permanently?')) return;
-      try { await deleteDoc(doc(db, 'workers', id)); showToast('Worker deleted', 'success'); loadWorkersTable(); loadStats(); }
-      catch (error) { showToast('Delete failed', 'error'); }
-    };
-    window.resolveTicket = async (id) => {
-      try { await updateDoc(doc(db, 'support_requests', id), { status: 'resolved', resolvedAt: serverTimestamp() });
-        showToast('Ticket resolved', 'success'); loadTickets(); loadStats(); }
-      catch (error) { showToast('Failed to resolve', 'error'); }
+    // Global functions for inline onclick
+    window.editWorker = async (id) => {
+      showToast('Edit functionality - implement as needed', 'warning');
     };
     
-    document.getElementById('logoutBtn')?.addEventListener('click', async (e) => { e.preventDefault(); await auth.signOut(); window.location.href = 'index.html'; });
+    window.deleteWorker = async (id) => {
+      if (!confirm('Delete this worker permanently?')) return;
+      try {
+        await deleteDoc(doc(db, 'workers', id));
+        showToast('Worker deleted', 'success');
+        loadWorkersTable();
+        loadStats();
+      } catch (error) {
+        showToast('Delete failed', 'error');
+      }
+    };
+    
+    window.resolveTicket = async (id) => {
+      try {
+        await updateDoc(doc(db, 'support_requests', id), {
+          status: 'resolved',
+          resolvedAt: serverTimestamp()
+        });
+        showToast('Ticket resolved', 'success');
+        loadTickets();
+        loadStats();
+      } catch (error) {
+        showToast('Failed to resolve', 'error');
+      }
+    };
+    
+    // Logout
+    document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await auth.signOut();
+      window.location.href = 'index.html';
+    });
   </script>
 </body>
 </html>
