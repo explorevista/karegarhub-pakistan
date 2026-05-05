@@ -1,147 +1,386 @@
-<!DOCTYPE html>
-<html lang="en-GB" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy – KarigarHub Pakistan</title>
-  <meta name="description" content="KarigarHub Pakistan Privacy Policy. Learn how we collect, use, and protect your data.">
-  <meta name="keywords" content="privacy policy, karigarhub, data protection, pakistan">
-  <meta name="author" content="Muhammad Ali">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Privacy Policy – KarigarHub Pakistan">
-  <meta property="og:description" content="Your privacy matters. Read our comprehensive privacy policy.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://karigarhub-pakistan.firebaseapp.com/privacy.html">
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <div id="toast" role="status" aria-live="polite"></div>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* BODY */
+body{
+  background:#0b0b0b;
+  color:#fff;
+}
+
+/* GOLDEN COLORS */
+:root{
+  --gold:#D4AF37;
+  --dark:#0b0b0b;
+}
+
+/* BUTTON */
+.btn{
+  background:linear-gradient(45deg,#D4AF37,#FFD700);
+  color:#000;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+}/* ========================================
+   KARIGARHUB PAKISTAN – Premium UI Fixes
+   Uber/Airbnb/Stripe Inspired + Golden Theme
+   ======================================== */
+
+:root {
+  /* Premium Golden Color System */
+  --primary: #D4AF37;
+  --primary-dark: #B8972B;
+  --primary-light: #FFF9E6;
+  --secondary: #0F172A;
+  --secondary-light: #1E293B;
+  --accent: #06B6D4;
   
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="index.html" class="logo" aria-label="KarigarHub Home">
-        <img src="assets/images/logo.png" alt="KarigarHub" class="logo-img" onerror="this.style.display='none'">
-        KarigarHub.pk
-      </a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link" data-i18n="home">Home</a>
-        <a href="about.html" class="nav-link" data-i18n="about">About</a>
-        <a href="index.html#services" class="nav-link" data-i18n="services">Services</a>
-        <a href="contact.html" class="nav-link" data-i18n="contact">Contact</a>
-        <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ur">UR</button>
-          <button class="lang-btn" data-lang="roman">ROMAN</button>
-        </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button>
-        <span id="guestNav">
-          <a href="login.html" class="btn btn-sm btn-outline" data-i18n="login">Login</a>
-          <a href="signup.html" class="btn btn-sm btn-primary" data-i18n="signup">Sign Up</a>
-        </span>
-        <span id="userNav" class="hidden">
-          <a href="dashboard.html" class="nav-link" data-i18n="dashboard">Dashboard</a>
-          <a href="profile.html" class="nav-link" id="userName">Profile</a>
-          <a href="admin-dashboard.html" id="adminLink" class="nav-link hidden" data-i18n="admin">Admin</a>
-          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger" data-i18n="logout">Logout</a>
-        </span>
-      </div>
-    </div>
-  </nav>
+  /* Light Theme */
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F5F9;
+  --border: #E2E8F0;
+  --text: #0F172A;
+  --text-sec: #64748B;
+  --text-muted: #94A3B8;
   
-  <main id="main">
-    <section class="section">
-      <div class="container" style="max-width: 900px;">
-        <div class="text-center mb-4">
-          <h1>Privacy Policy</h1>
-          <p class="text-muted">Last updated: <span id="lastUpdated"></span></p>
-        </div>
-        
-        <div class="card glass" style="padding: var(--space-6);">
-          <h3>1. Information We Collect</h3>
-          <p class="text-muted">We collect information you provide directly to us, such as when you create an account, book a service, or contact support. This may include your name, email address, phone number, location, and service preferences.</p>
-          
-          <h3 class="mt-4">2. How We Use Your Information</h3>
-          <p class="text-muted">We use your information to: provide and maintain our services; process transactions and send related information; communicate with you about services, updates, and support; personalize your experience; and improve our platform.</p>
-          
-          <h3 class="mt-4">3. User Authentication</h3>
-          <p class="text-muted">KarigarHub uses Firebase Authentication for secure user login. Your credentials are encrypted and never stored in plain text. We do not have access to your password.</p>
-          
-          <h3 class="mt-4">4. Cookies and Tracking</h3>
-          <p class="text-muted">We use cookies and similar tracking technologies to improve your experience, analyze traffic, and personalize content. You can control cookie settings through your browser preferences.</p>
-          
-          <h3 class="mt-4">5. Data Security</h3>
-          <p class="text-muted">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. All data is transmitted over encrypted connections (HTTPS).</p>
-          
-          <h3 class="mt-4">6. Third-Party Services</h3>
-          <p class="text-muted">We use Firebase (Google) for authentication and database services, and IMGBB for image hosting. These third parties have their own privacy policies which we encourage you to review.</p>
-          
-          <h3 class="mt-4">7. Your Rights</h3>
-          <p class="text-muted">You have the right to access, correct, or delete your personal information. You may also request a copy of your data or object to certain processing activities. Contact us to exercise these rights.</p>
-          
-          <h3 class="mt-4">8. Changes to This Policy</h3>
-          <p class="text-muted">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.</p>
-          
-          <h3 class="mt-4">9. Contact Us</h3>
-          <p class="text-muted">If you have any questions about this Privacy Policy, please contact us at:<br>
-          <a href="mailto:smarttoolsuniverse2026@gmail.com" class="text-primary">smarttoolsuniverse2026@gmail.com</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
+  /* Dark Theme */
+  --dark-bg: #0B0F19;
+  --dark-surface: #151B2B;
+  --dark-surface-alt: #1E293B;
+  --dark-border: #334155;
+  --dark-text: #F1F5F9;
+  --dark-text-sec: #CBD5E1;
   
-  <footer class="footer" role="contentinfo">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="assets/images/logo.png" alt="KarigarHub" class="logo-img" onerror="this.style.display='none'">
-          KarigarHub.pk
-        </a>
-        <p>Pakistan's trusted home services platform. Verified professionals, guaranteed quality work.</p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/share/1HtgWdb4eR/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">f</a>
-          <a href="https://www.instagram.com/explorevista2025" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">📷</a>
-          <a href="https://www.linkedin.com/in/muhammad-ali-kn-22505a28a" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
-          <a href="https://t.me/Aiearnverse" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">✈️</a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h4 data-i18n="quickLinks">Quick Links</h4>
-        <a href="index.html" data-i18n="home">Home</a>
-        <a href="about.html" data-i18n="about">About Us</a>
-        <a href="index.html#services" data-i18n="services">Services</a>
-        <a href="contact.html" data-i18n="contact">Contact</a>
-        <a href="dashboard.html" data-i18n="dashboard">Dashboard</a>
-      </div>
-      <div class="footer-links">
-        <h4 data-i18n="legal">Legal</h4>
-        <a href="privacy.html" data-i18n="privacy">Privacy Policy</a>
-        <a href="terms.html" data-i18n="terms">Terms of Service</a>
-        <a href="disclaimer.html" data-i18n="disclaimer">Disclaimer</a>
-      </div>
-      <div class="footer-links">
-        <h4 data-i18n="contact">Contact</h4>
-        <p>📞 <a href="tel:+923441695860" data-phone>+92 344 1695860</a></p>
-        <p>✉️ <a href="mailto:muhammadalikn53@gmail.com" data-email>muhammadalikn53@gmail.com</a></p>
-        <p>🕐 Mon-Sat: 9AM - 9PM PKT</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="currentYear"></span> KarigarHub Pakistan. All rights reserved.</p>
-    </div>
-  </footer>
+  /* Glassmorphism */
+  --glass-bg: rgba(212, 175, 55, 0.1);
+  --glass-border: rgba(212, 175, 55, 0.3);
+  --glass-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
   
-  <script>
-    document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-  <script type="module" src="firebase.js"></script>
-  <script type="module" src="app.js"></script>
-</body>
-</html>
+  /* UI System */
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 0 40px rgba(212, 175, 55, 0.25);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Typography */
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', serif;
+}
+
+[data-theme="dark"] {
+  --bg: var(--dark-bg); --surface: var(--dark-surface);
+  --surface-alt: var(--dark-surface-alt); --border: var(--dark-border);
+  --text: var(--dark-text); --text-sec: var(--dark-text-sec);
+  --text-muted: var(--dark-text-muted);
+  --glass-bg: rgba(21, 27, 43, 0.8);
+  --glass-border: rgba(51, 65, 85, 0.6);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: var(--transition);
+  min-height: 100vh;
+}
+[lang="ur"], [lang="ur"] * { font-family: var(--font-urdu), var(--font-body); }
+
+/* ===== UTILITIES ===== */
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.hidden { display: none !important; }
+.section { padding: 4rem 0; }
+.mb-4 { margin-bottom: 2rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* ===== ✅ FIXED: Premium Sticky Navbar ===== */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--primary);
+  padding: 1rem 0;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+.navbar.scrolled { padding: 0.75rem 0; background: var(--secondary); }
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
+}
+.logo {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.logo-img { height: 40px; width: auto; object-fit: contain; }
+
+.nav-links { display: flex; align-items: center; gap: 1rem; }
+.nav-link {
+  padding: 0.5rem 1rem; border-radius: var(--radius-full);
+  font-weight: 500; color: var(--dark-text); transition: var(--transition);
+}
+.nav-link:hover, .nav-link.active { color: var(--primary); }
+
+/* ✅ UPGRADED: Modern Language Dropdown */
+.lang-dropdown { position: relative; margin-right: 0.5rem; }
+.lang-btn {
+  display: flex; align-items: center; gap: 0.3rem;
+  padding: 0.4rem 0.8rem; background: var(--dark-surface);
+  border: 2px solid var(--primary); border-radius: var(--radius-full);
+  color: var(--dark-text); font-weight: 500; cursor: pointer;
+  transition: var(--transition);
+}
+.lang-btn:hover, .lang-btn.active { background: var(--primary); color: var(--secondary); }
+.lang-arrow { transition: transform 0.2s; }
+.lang-btn.active .lang-arrow { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute; top: 100%; right: 0; margin-top: 0.5rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-lg);
+  min-width: 140px; overflow: hidden;
+  opacity: 0; visibility: hidden; transform: translateY(-10px);
+  transition: var(--transition); z-index: 1001;
+}
+.lang-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-option {
+  display: block; width: 100%; padding: 0.6rem 1rem;
+  background: none; border: none; text-align: left;
+  color: var(--text); cursor: pointer; transition: var(--transition);
+}
+.lang-option:hover, .lang-option.active { background: var(--primary-light); color: var(--primary); }
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none; border: 2px solid var(--primary);
+  color: var(--primary); width: 40px; height: 40px;
+  border-radius: 50%; cursor: pointer; font-size: 1.1rem;
+  transition: var(--transition); display: flex; align-items: center; justify-content: center;
+}
+.theme-toggle:hover { background: var(--primary); color: var(--secondary); transform: rotate(180deg); }
+
+/* ✅ FIXED: Mobile Toggle */
+.mobile-toggle {
+  display: none; background: none; border: none;
+  width: 40px; height: 40px; cursor: pointer;
+  position: relative; z-index: 1002;
+}
+.hamburger, .hamburger::before, .hamburger::after {
+  content: ''; display: block; width: 24px; height: 2px;
+  background: var(--dark-text); border-radius: 2px;
+  position: absolute; left: 8px; transition: var(--transition);
+}
+.hamburger { top: 19px; }
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+.mobile-toggle.active .hamburger { background: transparent; }
+.mobile-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+.mobile-toggle.active .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+/* ===== ✅ FIXED: Premium Buttons ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.75rem 1.5rem;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
+  border-radius: var(--radius-full); border: none; cursor: pointer;
+  transition: var(--transition); text-decoration: none; position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0; transition: var(--transition);
+}
+.btn:hover::before { opacity: 1; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--secondary); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-gold); }
+.btn-outline {
+  background: transparent; border: 2px solid var(--primary); color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: var(--secondary); }
+.btn-whatsapp {
+  background: #25D366; color: white; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+.btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
+.btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
+
+/* Pulse Animation for CTA */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+}
+.btn.pulse { animation: pulse 2s infinite; }
+
+/* ===== ✅ FIXED: Hero Section with Background & Overlay ===== */
+.hero {
+  position: relative; padding: 6rem 0 4rem;
+  background: var(--secondary);
+  overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg-img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.7);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(212,175,55,0.2));
+}
+.hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero-text h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+.hero-text p {
+  font-size: 1.25rem; max-width: 600px; margin-bottom: 2rem; color: var(--dark-text-sec);
+}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+/* ===== ✅ FIXED: Premium Service Cards ===== */
+.section-header h2 {
+  font-family: var(--font-display); font-size: 2rem; margin-bottom: 0.5rem;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.service-card {
+  display: flex; flex-direction: column; border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border);
+  transition: var(--transition); background: var(--surface);
+}
+.service-card:hover {
+  transform: translateY(-8px); border-color: var(--primary);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+}
+.service-card-img {
+  height: 160px; overflow: hidden; background: var(--surface-alt);
+}
+.service-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: var(--transition);
+}
+.service-card:hover .service-card-img img { transform: scale(1.05); }
+.service-card-content { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+.service-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.service-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.service-desc { font-size: 0.9rem; margin-bottom: 1rem; flex: 1; }
+.service-card .btn { align-self: flex-start; }
+
+/* ===== ✅ FIXED: Premium Footer ===== */
+.footer {
+  background: var(--secondary); border-top: 3px solid var(--primary);
+  padding: 3rem 0 1.5rem; margin-top: 4rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem; margin-bottom: 2rem;
+}
+.footer-brand .logo { margin-bottom: 1rem; display: inline-flex; }
+.footer-brand p { color: var(--dark-text-sec); line-height: 1.8; font-size: 0.95rem; }
+.footer-links h4 { color: var(--primary); margin-bottom: 1rem; font-size: 1rem; }
+.footer-links a {
+  display: block; padding: 0.25rem 0; color: var(--dark-text-sec);
+  transition: var(--transition); font-size: 0.95rem;
+}
+.footer-links a:hover { color: var(--primary); padding-left: 8px; }
+.social-links { display: flex; gap: 0.75rem; margin-top: 1rem; }
+.social-link {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--dark-surface); display: flex; align-items: center;
+  justify-content: center; color: var(--primary); transition: var(--transition);
+}
+.social-link:hover { background: var(--primary); color: var(--secondary); transform: translateY(-3px); }
+.footer-bottom {
+  text-align: center; padding-top: 1.5rem;
+  border-top: 1px solid var(--dark-border); color: var(--dark-text-sec); font-size: 0.9rem;
+}
+
+/* ===== Toast Notification ===== */
+.toast {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  padding: 1rem 1.5rem; background: var(--surface);
+  border-left: 4px solid var(--primary); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); z-index: 9999;
+  transform: translateX(calc(100% + 1.5rem));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 380px;
+}
+.toast.show { transform: translateX(0); }
+.toast.success { border-color: #10B981; }
+.toast.error { border-color: #EF4444; }
+
+/* ===== Animations ===== */
+@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.animate-slide { animation: slideIn 0.5s ease forwards; }
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: var(--secondary); flex-direction: column;
+    padding: 1rem; gap: 0; border-bottom: 1px solid var(--dark-border);
+    transform: translateY(-100%); opacity: 0; transition: var(--transition);
+    pointer-events: none; z-index: 999;
+  }
+  .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .nav-link { width: 100%; padding: 0.75rem 1rem; border-radius: 0; border-bottom: 1px solid var(--dark-border); }
+  .mobile-toggle { display: block; }
+  .lang-dropdown { margin-right: 0; width: 100%; }
+  .lang-btn { width: 100%; justify-content: space-between; }
+  .lang-menu { position: static; margin-top: 0; box-shadow: none; border: none; background: var(--dark-surface); opacity: 1; visibility: visible; transform: none; display: none; }
+  .lang-menu.active { display: block; }
+  .hero-text h1 { font-size: 2rem; }
+  .hero-text p { font-size: 1rem; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .btn-lg { width: 100%; max-width: 300px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .social-links { justify-content: center; }
+}
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card-img { height: 140px; }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.btn:hover{
+  transform:scale(1.05);
+}
