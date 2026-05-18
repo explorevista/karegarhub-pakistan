@@ -3,475 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KarigarHub Pakistan – Home Services Platform</title>
-  <meta name="description" content="Find trusted electricians, plumbers, AC technicians & mechanics in Pakistan. Fast, reliable home services at your doorstep.">
-  <meta name="keywords" content="home services pakistan, electrician, plumber, ac repair, karigarhub">
+
+  <!-- ================= SEO CORE ================= -->
+  <title>KarigarHub Pakistan | Trusted Home Services Platform</title>
+  <meta name="description" content="KarigarHub Pakistan connects you with verified electricians, plumbers, AC technicians, carpenters & mechanics. Fast, reliable home services at your doorstep.">
+  <meta name="keywords" content="home services pakistan, electrician pakistan, plumber pakistan, ac repair, karigarhub, skilled workers pakistan">
   <meta name="author" content="Muhammad Ali">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  
-  <!-- Google Fonts - Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
+  <!-- ================= GOOGLE SEARCH CONSOLE ================= -->
+  <meta name="google-site-verification" content="DcbWTnUxvJVAUExh8X-csHxO0JJmB4AMAIuveWWCdDo" />
+
+  <!-- ================= OPEN GRAPH (FACEBOOK/WHATSAPP SEO) ================= -->
+  <meta property="og:title" content="KarigarHub Pakistan - Trusted Home Services">
+  <meta property="og:description" content="Verified electricians, plumbers & technicians across Pakistan. Book trusted professionals instantly.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:url" content="https://karigarhubpk.github.io">
+  <meta property="og:type" content="website">
+
+  <!-- ================= TWITTER CARDS ================= -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KarigarHub Pakistan">
+  <meta name="twitter:description" content="Book trusted home service professionals in Pakistan instantly.">
+  <meta name="twitter:image" content="assets/images/og-image.jpg">
+
+  <!-- ================= FAVICON ================= -->
+  <link rel="icon" href="assets/images/favicon.png">
+
+  <!-- ================= GOOGLE FONTS ================= -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ================= GOOGLE ANALYTICS ================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9NE5E50GG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z9NE5E50GG');
+  </script>
+
+  <!-- ================= ADSENSE READY ================= -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7495097418204600"
+     crossorigin="anonymous"></script>
+
+  <!-- ================= SCHEMA MARKUP (SEO BOOST) ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "KarigarHub Pakistan",
+    "url": "https://karigarhubpk.github.io",
+    "image": "assets/images/logo.png",
+    "description": "Home services platform connecting customers with verified professionals in Pakistan.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PK"
+    }
+  }
+  </script>
+
+  <!-- ================= STYLES ================= -->
   <style>
-    :root {
-      --primary: #D4AF37;
-      --primary-dark: #B8972B;
-      --primary-light: #FFF9E6;
-      --secondary: #0F172A;
-      --accent: #06B6D4;
-      --bg: #F8FAFC;
-      --surface: #FFFFFF;
-      --text: #0F172A;
-      --text-sec: #64748B;
-      --border: #E2E8F0;
-      --radius: 12px;
-      --radius-full: 9999px;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    body { margin:0; font-family:Poppins,sans-serif; background:#f5f7fb; }
+
+    header {
+      background:#0f172a;
+      color:white;
+      padding:15px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+
+    .logo { font-weight:700; color:#facc15; }
+
+    nav a {
+      color:white;
+      margin:0 10px;
+      text-decoration:none;
     }
-    
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-    .text-center { text-align: center; }
-    .text-muted { color: var(--text-sec); }
-    .section { padding: 4rem 0; }
-    
-    /* Navbar */
-    .navbar {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(15, 23, 42, 0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 2px solid var(--primary);
-      padding: 1rem 0;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
-    }
-    .nav-container {
-      display: flex; justify-content: space-between; align-items: center;
-      max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-weight: 800; font-size: 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
-    .logo-img { height: 40px; width: auto; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-link {
-      color: white; text-decoration: none; font-weight: 500;
-      padding: 0.5rem 1rem; border-radius: var(--radius-full);
-      transition: var(--transition);
-    }
-    .nav-link:hover, .nav-link.active { color: var(--primary); }
-    .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-    
-    /* Buttons */
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 0.5rem; padding: 0.75rem 1.5rem;
-      font-family: 'Poppins', sans-serif; font-weight: 600;
-      border-radius: var(--radius-full); border: none; cursor: pointer;
-      transition: var(--transition); text-decoration: none;
+      padding:8px 14px;
+      border-radius:20px;
+      background:#facc15;
+      color:black;
+      font-weight:600;
+      text-decoration:none;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--secondary); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6); }
-    .btn-outline {
-      background: transparent; border: 2px solid var(--primary); color: var(--primary);
-    }
-    .btn-outline:hover { background: var(--primary); color: var(--secondary); }
-    .btn-whatsapp {
-      background: #25D366; color: white; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-    }
-    .btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
-    .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
-    .btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
-    
-    /* Hero */
+
     .hero {
-      position: relative; padding: 6rem 0 4rem;
-      background: linear-gradient(135deg, var(--secondary), #1E293B);
-      overflow: hidden;
+      text-align:center;
+      padding:80px 20px;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      color:white;
     }
-    .hero-bg { position: absolute; inset: 0; }
-    .hero-bg-img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.6);
+
+    footer {
+      background:#0f172a;
+      color:#aaa;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
     }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(212,175,55,0.15));
-    }
-    .hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1.2;
-    }
-    .hero p { font-size: 1.25rem; margin-bottom: 2rem; color: #CBD5E1; }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    
-    /* Services */
-    .section-header { margin-bottom: 3rem; }
-    .section-header h2 {
-      font-size: 2.5rem; margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .service-card {
-      background: var(--surface); border-radius: var(--radius);
-      overflow: hidden; box-shadow: var(--shadow);
-      transition: var(--transition); border: 1px solid var(--border);
-    }
-    .service-card:hover {
-      transform: translateY(-8px); box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-    .service-card-img {
-      height: 180px; overflow: hidden; background: var(--bg);
-    }
-    .service-card-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: var(--transition);
-    }
-    .service-card:hover .service-card-img img { transform: scale(1.05); }
-    .service-card-content { padding: 1.5rem; }
-    .service-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
-    .service-name { font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; }
-    .service-desc { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-sec); }
-    
-    /* Support CTA */
-    .support-cta {
-      background: linear-gradient(135deg, var(--primary-light), var(--bg));
-      border: 2px solid var(--primary);
-    }
-    
-    /* Footer */
-    .footer {
-      background: var(--secondary); border-top: 3px solid var(--primary);
-      padding: 3rem 0 1.5rem; margin-top: 4rem;
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2rem; margin-bottom: 2rem;
-    }
-    .footer-brand .logo { margin-bottom: 1rem; display: inline-flex; }
-    .footer-brand p { color: #94A3B8; line-height: 1.8; }
-    .footer-links h4 { color: var(--primary); margin-bottom: 1rem; font-size: 1rem; }
-    .footer-links a {
-      display: block; padding: 0.25rem 0; color: #94A3B8;
-      transition: var(--transition); text-decoration: none;
-    }
-    .footer-links a:hover { color: var(--primary); padding-left: 8px; }
-    .social-links { display: flex; gap: 0.75rem; margin-top: 1rem; }
-    .social-link {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: #1E293B; display: flex; align-items: center;
-      justify-content: center; color: var(--primary); transition: var(--transition);
-    }
-    .social-link:hover { background: var(--primary); color: var(--secondary); transform: translateY(-3px); }
-    .social-link img { width: 20px; height: 20px; filter: brightness(0) saturate(100%); }
-    .footer-bottom {
-      text-align: center; padding-top: 1.5rem;
-      border-top: 1px solid #334155; color: #64748B; font-size: 0.9rem;
-    }
-    
-    /* Responsive */
-    @media (max-width: 992px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .hero-cta { flex-direction: column; }
-      .btn-lg { width: 100%; max-width: 300px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .social-links { justify-content: center; }
+
+    .mobile-toggle { display:none; cursor:pointer; }
+
+    @media(max-width:768px){
+      nav { display:none; }
+      .mobile-toggle { display:block; color:white; }
     }
   </style>
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo.png" alt="KarigarHub" class="logo-img">
-        KarigarHub.pk
-      </a>
-      <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="login.html" class="btn btn-sm btn-outline">Login</a>
-        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
-      </div>
-    </div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">KarigarHub.pk</div>
+
+  <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="menu">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="btn">Login</a>
   </nav>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="assets/images/hero.jpg" alt="Home services in Pakistan" class="hero-bg-img">
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content container">
-      <h1>Find Trusted Home Professionals, Instantly</h1>
-      <p>KarigarHub connects you with verified electricians, plumbers, AC technicians & more across Pakistan. Quality work, transparent pricing, guaranteed satisfaction.</p>
-      <div class="hero-cta">
-        <a href="#services" class="btn btn-lg btn-primary">Browse Services</a>
-        <a href="https://wa.me/923441695860" target="_blank" rel="noopener" class="btn btn-lg btn-whatsapp">
-          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">
-          Chat on WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>Our Services</h2>
-        <p class="text-muted">Professional home repair services at your fingertips</p>
-      </div>
-      
-      <div class="services-grid">
-        <!-- Electrician -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/electrician.jpg" alt="Electrician">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">⚡</span>
-            <h3 class="service-name">Electrician</h3>
-            <p class="service-desc">Wiring, repairs, installations & electrical safety checks</p>
-            <a href="https://wa.me/923441695860?text=I need an electrician" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Plumber -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/plumber.jpg" alt="Plumber">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🚰</span>
-            <h3 class="service-name">Plumber</h3>
-            <p class="service-desc">Pipe repairs, leaks, installations & drainage solutions</p>
-            <a href="https://wa.me/923441695860?text=I need a plumber" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- AC Technician -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/ac-tech.jpg" alt="AC Technician">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">❄️</span>
-            <h3 class="service-name">AC Technician</h3>
-            <p class="service-desc">AC repair, servicing, gas filling & installation</p>
-            <a href="https://wa.me/923441695860?text=I need AC repair" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Carpenter -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/carpenter.jpg" alt="Carpenter">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🪵</span>
-            <h3 class="service-name">Carpenter</h3>
-            <p class="service-desc">Furniture repair, custom woodwork & installations</p>
-            <a href="https://wa.me/923441695860?text=I need a carpenter" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Mason -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/mason.jpg" alt="Mason">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🧱</span>
-            <h3 class="service-name">Mason</h3>
-            <p class="service-desc">Brickwork, plastering, tiling & construction repairs</p>
-            <a href="https://wa.me/923441695860?text=I need a mason" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Painter -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/painter.jpg" alt="Painter">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🎨</span>
-            <h3 class="service-name">Painter</h3>
-            <p class="service-desc">Interior/exterior painting, wall treatments & finishes</p>
-            <a href="https://wa.me/923441695860?text=I need a painter" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Car Mechanic -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/car-mechanic.jpg" alt="Car Mechanic">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🚗</span>
-            <h3 class="service-name">Car Mechanic</h3>
-            <p class="service-desc">Engine repair, servicing, diagnostics & maintenance</p>
-            <a href="https://wa.me/923441695860?text=I need a car mechanic" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-        
-        <!-- Bike Mechanic -->
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="assets/images/bike-mechanic.jpg" alt="Bike Mechanic">
-          </div>
-          <div class="service-card-content">
-            <span class="service-icon">🏍️</span>
-            <h3 class="service-name">Bike Mechanic</h3>
-            <p class="service-desc">Motorcycle repair, tuning, parts replacement & servicing</p>
-            <a href="https://wa.me/923441695860?text=I need a bike mechanic" target="_blank" rel="noopener" class="btn btn-sm btn-whatsapp">
-              <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 16px; height: 16px; filter: brightness(0) invert(1); margin-right: 4px;">
-              WhatsApp
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Support CTA -->
-  <section class="section" style="background: var(--bg);">
-    <div class="container">
-      <div class="card support-cta text-center" style="max-width: 800px; margin: 0 auto; padding: 3rem; border-radius: var(--radius);">
-        <h3 style="margin-bottom: 1rem;">Need Custom Help?</h3>
-        <p class="text-muted" style="margin-bottom: 2rem;">Can't find what you need? Contact us directly and we'll connect you with the right professional within 24 hours.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <a href="https://wa.me/923441695860" target="_blank" rel="noopener" class="btn btn-whatsapp">
-            <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 18px; height: 18px; filter: brightness(0) invert(1); margin-right: 6px;">
-            +92 344 1695860
-          </a>
-          <a href="https://wa.me/923272358384" target="_blank" rel="noopener" class="btn btn-whatsapp">
-            <img src="assets/icons/whatsapp.svg" alt="WhatsApp" style="width: 18px; height: 18px; filter: brightness(0) invert(1); margin-right: 6px;">
-            +92 327 2358384
-          </a>
-        </div>
-        <a href="contact.html" class="btn btn-outline">Get Support</a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="assets/images/logo.png" alt="KarigarHub" class="logo-img">
-            KarigarHub.pk
-          </a>
-          <p>Pakistan's trusted home services platform. Verified professionals, guaranteed quality work.</p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/share/1HtgWdb4eR/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-              <img src="assets/icons/facebook.svg" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/explorevista2025" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-              <img src="assets/icons/instagram.svg" alt="Instagram">
-            </a>
-            <a href="https://www.linkedin.com/in/muhammad-ali-kn-22505a28a" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://t.me/Aiearnverse" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
-              <img src="assets/icons/telegram.svg" alt="Telegram">
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="#services">Services</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Legal</h4>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="disclaimer.html">Disclaimer</a>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <p>📞 <a href="tel:+923441695860" style="color: #94A3B8; text-decoration: none;">+92 344 1695860</a></p>
-          <p>📞 <a href="tel:+923272358384" style="color: #94A3B8; text-decoration: none;">+92 327 2358384</a></p>
-          <p>✉️ <a href="mailto:muhammadalikn53@gmail.com" style="color: #94A3B8; text-decoration: none;">muhammadalikn53@gmail.com</a></p>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; <span id="currentYear"></span> KarigarHub Pakistan. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <h1>Find Trusted Home Professionals</h1>
+  <p>Electricians, Plumbers, AC Technicians & More in Pakistan</p>
+  <a href="#services" class="btn">Browse Services</a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 KarigarHub Pakistan | All Rights Reserved
+</footer>
+
+<!-- ================= JS ================= -->
+<script>
+function toggleMenu(){
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
+
 </body>
 </html>
