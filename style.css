@@ -796,6 +796,287 @@ a{
     animation:none !important;
     transition:none !important;
     scroll-behavior:auto !important;
+     ```css id="ovvgd2"
+/* =========================================
+   EXTRA PREMIUM SECTIONS
+========================================= */
+
+/* ===== STATS ===== */
+
+.stats{
+
+  margin-top:-70px;
+
+  position:relative;
+  z-index:5;
+
+}
+
+.stats-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:1.5rem;
+
+}
+
+.stat-card{
+
+  background:var(--surface);
+
+  padding:2rem;
+
+  border-radius:var(--radius-lg);
+
+  text-align:center;
+
+  box-shadow:var(--shadow);
+
+  border:1px solid var(--border);
+
+}
+
+.stat-card h3{
+
+  font-size:2rem;
+
+  color:var(--primary);
+
+  margin-bottom:.5rem;
+
+}
+
+/* ===== TRUST BADGES ===== */
+
+.trust-section{
+
+  background:var(--surface-alt);
+
+}
+
+.trust-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(240px,1fr));
+
+  gap:2rem;
+
+}
+
+.trust-card{
+
+  background:var(--surface);
+
+  padding:2rem;
+
+  border-radius:var(--radius);
+
+  text-align:center;
+
+  box-shadow:var(--shadow);
+
+  transition:var(--transition);
+
+}
+
+.trust-card:hover{
+
+  transform:translateY(-6px);
+
+}
+
+/* ===== TESTIMONIALS ===== */
+
+.testimonials{
+
+  background:linear-gradient(
+    135deg,
+    #0F172A,
+    #111827
+  );
+
+  color:#fff;
+
+}
+
+.testimonial-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(300px,1fr));
+
+  gap:2rem;
+
+}
+
+.testimonial-card{
+
+  background:rgba(255,255,255,.06);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  padding:2rem;
+
+  border-radius:var(--radius-lg);
+
+  backdrop-filter:blur(12px);
+
+}
+
+.testimonial-card h4{
+
+  color:var(--primary);
+
+  margin-top:1rem;
+
+}
+
+/* ===== AI ASSISTANT ===== */
+
+.ai-assistant{
+
+  position:fixed;
+
+  right:25px;
+  bottom:25px;
+
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent)
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#000;
+
+  font-size:1.7rem;
+
+  box-shadow:var(--shadow-gold);
+
+  z-index:9999;
+
+  cursor:pointer;
+
+  animation:floatAI 3s ease-in-out infinite;
+
+}
+
+@keyframes floatAI{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+
+.whatsapp-float{
+
+  position:fixed;
+
+  left:25px;
+  bottom:25px;
+
+  width:65px;
+  height:65px;
+
+  background:#25D366;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 10px 25px rgba(37,211,102,.3);
+
+  z-index:9999;
+
+}
+
+.whatsapp-float img{
+
+  width:34px;
+
+}
+
+/* ===== HOW IT WORKS ===== */
+
+.how-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+
+  gap:2rem;
+
+}
+
+.how-card{
+
+  background:var(--surface);
+
+  padding:2rem;
+
+  border-radius:var(--radius-lg);
+
+  text-align:center;
+
+  box-shadow:var(--shadow);
+
+}
+
+.how-number{
+
+  width:60px;
+  height:60px;
+
+  margin:auto auto 1rem;
+
+  border-radius:50%;
+
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:800;
+  font-size:1.3rem;
+
+  color:#000;
+
+}
+```
+
 
   }
 
