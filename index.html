@@ -676,12 +676,106 @@ footer::before{
 .rev-r.vis{opacity:1;transform:translateX(0);}
 
 /* ═══════════════════════════════════════════
+   WORKERS SECTION
+═══════════════════════════════════════════ */
+.worker-tabs{
+  display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:center;margin-bottom:44px;
+}
+.wtab{
+  background:var(--card);border:1.5px solid var(--border2);
+  color:var(--muted);font-family:var(--fh);font-size:.82rem;font-weight:600;
+  padding:10px 22px;border-radius:999px;cursor:pointer;
+  transition:all .3s;
+}
+.wtab:hover{border-color:var(--border);color:var(--gold);}
+.wtab.active{
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color:#000;border-color:transparent;
+  box-shadow:0 6px 20px rgba(212,175,55,.3);
+}
+.workers-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:22px;margin-bottom:44px;
+}
+.wcard{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:22px;padding:26px;
+  transition:all .4s;position:relative;overflow:hidden;
+}
+.wcard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+  opacity:0;transition:opacity .4s;
+}
+.wcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--border);}
+.wcard:hover::before{opacity:1;}
+.wcard.hidden{display:none;}
+.wcard-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.wcard-avatar{
+  width:48px;height:48px;min-width:48px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--fh);font-size:.88rem;font-weight:800;color:#000;
+  flex-shrink:0;
+}
+.wcard-info{flex:1;}
+.wcard-name{font-family:var(--fh);font-size:.96rem;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.2;}
+.wcard-city{font-size:.74rem;color:var(--muted);}
+.wcard-badge{
+  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+  color:var(--green);font-size:.65rem;font-weight:700;
+  padding:4px 10px;border-radius:999px;white-space:nowrap;
+  letter-spacing:.5px;
+}
+.wcard-service{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.wsvc-tag{
+  background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);
+  color:var(--gold-dk);font-size:.71rem;font-weight:600;
+  padding:4px 10px;border-radius:999px;
+}
+.wcard-desc{
+  color:var(--muted);font-size:.82rem;line-height:1.6;
+  margin-bottom:18px;min-height:48px;
+}
+.wcard-btns{display:flex;gap:10px;}
+.wbtn-wa{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--wa);color:#fff;
+  font-family:var(--fh);font-size:.82rem;font-weight:700;
+  padding:10px 16px;border-radius:12px;transition:all .3s;
+}
+.wbtn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,.35);}
+.wbtn-call{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  background:var(--card);border:1.5px solid var(--border2);
+  color:var(--text);font-family:var(--fh);font-size:.82rem;font-weight:600;
+  padding:10px 16px;border-radius:12px;transition:all .3s;white-space:nowrap;
+}
+.wbtn-call:hover{border-color:var(--gold);color:var(--gold);}
+.workers-cta{
+  text-align:center;padding:40px;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:24px;
+}
+.workers-cta p{color:var(--muted);font-size:.96rem;margin-bottom:20px;}
+.wjoin-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color:#000;font-family:var(--fh);font-size:.9rem;font-weight:700;
+  padding:13px 30px;border-radius:999px;transition:all .3s;
+  box-shadow:0 4px 20px rgba(212,175,55,.3);
+}
+.wjoin-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,.45);}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media(max-width:1100px){
   .svc-grid{grid-template-columns:repeat(3,1fr);}
   .feat-grid{grid-template-columns:repeat(2,1fr);}
   .cities-grid{grid-template-columns:repeat(2,1fr);}
+  .workers-grid{grid-template-columns:repeat(2,1fr);}
   .ft-grid{grid-template-columns:1fr 1fr;}
   .stats-bar .container{grid-template-columns:repeat(2,1fr);}
 }
@@ -695,7 +789,7 @@ footer::before{
     display:none;border-bottom:1px solid var(--border);
   }
   .nav-links.open{display:flex;}
-  .svc-grid,.feat-grid,.steps-grid,.test-grid{grid-template-columns:1fr;}
+  .svc-grid,.feat-grid,.steps-grid,.test-grid,.workers-grid{grid-template-columns:1fr;}
   .steps-grid::before{display:none;}
   .cities-grid{grid-template-columns:1fr;}
   .hero-bar{grid-template-columns:repeat(2,1fr);}
@@ -704,6 +798,8 @@ footer::before{
   .ai-box{width:300px;right:-14px;}
   .wa-float{right:18px;bottom:96px;}
   .ai-wrap{right:18px;bottom:22px;}
+  .worker-tabs{gap:7px;}
+  .wtab{font-size:.76rem;padding:8px 16px;}
 }
 </style>
 </head>
@@ -740,6 +836,7 @@ footer::before{
     <nav class="nav-links" id="nav">
       <a href="index.html" class="active" data-en="Home" data-ur="ہوم" data-roman="Home">Home</a>
       <a href="#services" data-en="Services" data-ur="خدمات" data-roman="Khidmat">Services</a>
+      <a href="#workers" data-en="Workers" data-ur="کاریگر" data-roman="Karigar">Workers</a>
       <a href="about.html" data-en="About" data-ur="ہمارے بارے" data-roman="Hamare Bare">About</a>
       <a href="contact.html" data-en="Contact" data-ur="رابطہ" data-roman="Rabta">Contact</a>
       <a href="login.html" class="btn-login">Login</a>
@@ -1146,6 +1243,366 @@ footer::before{
   </div>
 </section>
 
+<!-- ═══ WORKERS SECTION ═══ -->
+<section class="section" id="workers" style="background:var(--bg);">
+  <div class="container">
+    <div class="sec-hdr tc rev">
+      <span class="sec-eye" data-en="Available Workers" data-ur="دستیاب کاریگر" data-roman="Available Karigar">Available Workers</span>
+      <h2 class="sec-h" data-en="Find Karigar in Your City" data-ur="اپنے شہر میں کاریگر تلاش کریں" data-roman="Apne Shehar Mein Karigar Talash Karein">Find Karigar in Your City</h2>
+      <p class="sec-s" data-en="Select your city to see verified workers available near you — contact them directly via WhatsApp." data-ur="اپنا شہر منتخب کریں اور قریبی تصدیق شدہ کاریگر دیکھیں۔" data-roman="Apna shehar chunein aur nearby verified karigar dekhein.">Select your city to see verified workers available near you — contact them directly via WhatsApp.</p>
+    </div>
+
+    <!-- City Filter Tabs -->
+    <div class="worker-tabs rev">
+      <button class="wtab active" onclick="filterWorkers('all')">🇵🇰 All Cities</button>
+      <button class="wtab" onclick="filterWorkers('karachi')">🏙️ Karachi</button>
+      <button class="wtab" onclick="filterWorkers('lahore')">🌳 Lahore</button>
+      <button class="wtab" onclick="filterWorkers('islamabad')">🏛️ Islamabad</button>
+      <button class="wtab" onclick="filterWorkers('rawalpindi')">🌆 Rawalpindi</button>
+    </div>
+
+    <!-- Workers Grid -->
+    <div class="workers-grid" id="workersGrid">
+
+      <!-- KARACHI WORKERS -->
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">MA</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Mohammad Ali</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">⚡ Electrician</span>
+        </div>
+        <p class="wcard-desc">Home Wiring, Fan Installation, Board Repair</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923221234567?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923221234567" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">RH</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Rabia Haider</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🏠 Home Staff</span>
+        </div>
+        <p class="wcard-desc">House Maid, Babysitter, Patient Attendant, Nanny, Cook, Chef, Driver, Security Guard, Gardner, Office Staff</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923117730998?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923117730998" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">HE</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Harram Electronics</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🛠️ Appliance Repair</span>
+        </div>
+        <p class="wcard-desc">LCD/LED TV Repair, Screen Replacement, Backlight, Power Supply, Motherboard</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923332613082?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923332613082" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">PE</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Professional AC & Electrical</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">❄️ AC Technician</span>
+          <span class="wsvc-tag">⚡ Electrician</span>
+        </div>
+        <p class="wcard-desc">AC Installation, Repair, Gas Refilling, Wiring, Fault Finding, UPS Setup</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923101090309?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923101090309" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">NC</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Naf Cam</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🌐 Internet/WiFi</span>
+          <span class="wsvc-tag">📹 CCTV</span>
+        </div>
+        <p class="wcard-desc">CCTV Installation, Repair, DVR/NVR, IP Camera, Network Cabling, Intercom, Access Control, PABX</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923333890771?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923333890771" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="karachi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">MC</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Mason Chemicals Expert</h4>
+            <span class="wcard-city">📍 Karachi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🧱 Mason</span>
+        </div>
+        <p class="wcard-desc">Waterproofing, Heat Proofing, Bathroom Leakage Control, Roof Heat Proofing, Water Tank Waterproofing, Crack Repair</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923202120168?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923202120168" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- LAHORE WORKERS -->
+      <div class="wcard rev" data-city="lahore">
+        <div class="wcard-top">
+          <div class="wcard-avatar">HA</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Hafeez Ahmad</h4>
+            <span class="wcard-city">📍 Lahore</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🏠 Home Staff</span>
+        </div>
+        <p class="wcard-desc">Cook, Maid, Driver, Nurse, Patient Attendant</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923009434531?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923009434531" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="lahore">
+        <div class="wcard-top">
+          <div class="wcard-avatar">ET</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Elite Tech Solutions</h4>
+            <span class="wcard-city">📍 Lahore</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">⚡ Electrician</span>
+          <span class="wsvc-tag">❄️ AC Technician</span>
+        </div>
+        <p class="wcard-desc">CCTV Camera Installation, Electrical Wiring, DB Box, AC Installation, UPS, Lighting, Fans</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923712498146?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923712498146" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="lahore">
+        <div class="wcard-top">
+          <div class="wcard-avatar">AH</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Arslan Haider</h4>
+            <span class="wcard-city">📍 Lahore</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">❄️ AC Technician</span>
+          <span class="wsvc-tag">⚡ Electrician</span>
+        </div>
+        <p class="wcard-desc">AC Installation, Repair, Gas Charging, Electrical Wiring, Home Appliances Maintenance</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923024460228?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923024460228" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- ISLAMABAD WORKERS -->
+      <div class="wcard rev" data-city="islamabad">
+        <div class="wcard-top">
+          <div class="wcard-avatar">IP</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Islamabad Pest Control</h4>
+            <span class="wcard-city">📍 Islamabad</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🧹 Home Cleaning</span>
+        </div>
+        <p class="wcard-desc">Deep Cleaning, Kitchen, Bathroom, Marble Polish</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923195399982?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923195399982" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="islamabad">
+        <div class="wcard-top">
+          <div class="wcard-avatar">IS</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Interior Solutions Pakistan</h4>
+            <span class="wcard-city">📍 Islamabad</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🏠 Interior Design</span>
+        </div>
+        <p class="wcard-desc">2D/3D Design, Construction Supervision, Ceiling, Lighting, Kitchen, Wardrobe, Renovation</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923042359559?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923042359559" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="islamabad">
+        <div class="wcard-top">
+          <div class="wcard-avatar">WJ</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Waris Jutt</h4>
+            <span class="wcard-city">📍 Islamabad</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">🎨 Painter</span>
+        </div>
+        <p class="wcard-desc">House Painting, Texture Paint, Rockwall Design, Wall Putty, Weather Shield, Enamel Paint</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923401055330?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923401055330" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <div class="wcard rev" data-city="islamabad">
+        <div class="wcard-top">
+          <div class="wcard-avatar">BS</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Best Solar Services</h4>
+            <span class="wcard-city">📍 Islamabad</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">☀️ Solar</span>
+          <span class="wsvc-tag">❄️ AC</span>
+          <span class="wsvc-tag">⚡ Electrician</span>
+        </div>
+        <p class="wcard-desc">Solar Installation & Repair, AC Installation & Repair, Washing Machine Repair, Electrician Services</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923064070970?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923064070970" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- RAWALPINDI WORKERS -->
+      <div class="wcard rev" data-city="rawalpindi">
+        <div class="wcard-top">
+          <div class="wcard-avatar">RA</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Rawalpindi AC Services</h4>
+            <span class="wcard-city">📍 Rawalpindi</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">❄️ AC Technician</span>
+        </div>
+        <p class="wcard-desc">AC Installation, Repair, Gas Refilling</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923002376265?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923002376265" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- JHELUM / SOHAWA -->
+      <div class="wcard rev" data-city="other">
+        <div class="wcard-top">
+          <div class="wcard-avatar">RS</div>
+          <div class="wcard-info">
+            <h4 class="wcard-name">Raja Sana Ullah Affan</h4>
+            <span class="wcard-city">📍 Sohawa, Jhelum</span>
+          </div>
+          <div class="wcard-badge">✅ Verified</div>
+        </div>
+        <div class="wcard-service">
+          <span class="wsvc-tag">❄️ AC Technician</span>
+        </div>
+        <p class="wcard-desc">AC / Fridge Repair</p>
+        <div class="wcard-btns">
+          <a href="https://wa.me/923020491095?text=Assalam%20o%20Alaikum%20-%20I%20need%20your%20service" class="wbtn-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href="tel:+923020491095" class="wbtn-call">📞 Call</a>
+        </div>
+      </div>
+
+    </div><!-- end workers-grid -->
+
+    <!-- Add More CTA -->
+    <div class="workers-cta rev">
+      <p data-en="Are you a skilled karigar? Join KarigarHub and grow your business!" data-ur="کیا آپ ہنرمند کاریگر ہیں؟ کاریگرہب سے جڑیں اور اپنا کاروبار بڑھائیں!" data-roman="Kya aap skilled karigar hain? KarigarHub se judein aur apna business barhaein!">Are you a skilled karigar? Join KarigarHub and grow your business!</p>
+      <a href="https://wa.me/923441695860?text=Hi+KarigarHub%2C+mujhe+karigar+ke+tor+par+register+karna+hai" class="wjoin-btn" target="_blank" rel="noopener">
+        🔧 Register as a Karigar
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ TESTIMONIALS ═══ -->
 <section class="section test-section">
   <div class="container">
@@ -1306,6 +1763,21 @@ footer::before{
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
     navigator.serviceWorker.register("service-worker.js").catch(()=>{});
+  });
+}
+
+/* ═══ WORKERS FILTER ═══ */
+function filterWorkers(city){
+  // Update active tab
+  document.querySelectorAll('.wtab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  // Filter cards
+  document.querySelectorAll('.wcard').forEach(card=>{
+    if(city==='all' || card.dataset.city===city){
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
   });
 }
 
